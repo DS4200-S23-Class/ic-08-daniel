@@ -44,4 +44,3 @@ d3.csv("data/data.csv").then((data) => {
         .attr("width", xScale.bandwidth())
         .attr("height", function(d){ return VIS_HEIGHT - yScale(d.amount);});
   });
-});
