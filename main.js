@@ -23,8 +23,8 @@ let g = FRAME2.append("g")
 // load data into csv file
 d3.csv("data/data.csv").then((data) => {
 
-    xScale.domain(data.map(function(d){return d.category;}));
-    yScale.domain([0, d3.max(data, function(d){return d.amount;})]);
+    xScale.domain(data.map(function(d){return d.Category;}));
+    yScale.domain([0, d3.max(data, function(d){return d.Value;})]);
 
     g.append("g")
         .attr('transform', 'translate(0,'+VIS_HEIGHT+ ')')
@@ -39,8 +39,8 @@ d3.csv("data/data.csv").then((data) => {
         .enter()
         .append("rect")
         .attr("class", "bar")
-        .attr("x", function(d){ return xScale(d.category);})
-        .attr("y", function (d){ return yScale(d.amount);})
+        .attr("x", function(d){ return xScale(d.Category);})
+        .attr("y", function (d){ return yScale(d.Value);})
         .attr("width", xScale.bandwidth())
-        .attr("height", function(d){ return VIS_HEIGHT - yScale(d.amount);});
+        .attr("height", function(d){ return VIS_HEIGHT - yScale(d.Value);});
   });
